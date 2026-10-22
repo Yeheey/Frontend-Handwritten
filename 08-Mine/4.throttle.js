@@ -36,5 +36,11 @@ function throttle(fn, wait = 300) {
 const handleScroll = throttle(() => {
     console.log('滚动触发', Date.now());
 }, 1000);
-window.addEventListener('scroll', handleScroll);
+
+if (typeof window !== 'undefined') {
+    window.addEventListener('scroll', handleScroll);
+} else {
+    console.log('throttle 函数已定义（window 事件绑定需在浏览器中运行）');
+    handleScroll(); // Node 下模拟触发验证
+}
 

@@ -1,6 +1,6 @@
 # 前端手写代码高频题
 
-> 整理自前端面试高频手写题，涵盖 JS 基础、Promise、设计模式、React Hooks、前端工程、算法、TypeScript 七大分类。
+> 整理自前端面试高频手写题，涵盖 JS 基础、Promise、设计模式、React Hooks、前端工程、算法、TypeScript 八大分类，外加个人练习记录。
 
 ## 环境准备
 
@@ -90,3 +90,14 @@ node 04-React-Hooks/demo.js
 |------|------|--------|
 | `01-工具类型.ts` | Partial / Pick / Omit / Record / Readonly | Yes（`npx tsx`） |
 | `02-泛型与条件类型.ts` | 泛型约束 / 条件类型 / infer / DeepReadonly | Yes（`npx tsx`） |
+
+### 08-Mine（个人练习）
+| 文件 | 题目 | 可运行 |
+|------|------|--------|
+| `1.Fisher-Yates.js` | 数组乱序（Fisher-Yates 洗牌算法） | Yes |
+| `2.ajax.js` | 原生 AJAX 封装 | 部分（请求需浏览器） |
+| `3.deepClone.js` | 深拷贝（递归 + 特殊类型 + 循环引用） | Yes |
+| `4.throttle.js` | 节流函数 | 部分（事件绑定需浏览器） |
+| `5.debounce.js` | 防抖函数 | Yes |
+| `6.flatArray.js` | 数组扁平化（递归 + 栈） | Yes |
+| `7.uniqueArray.js` | 数组去重（3 种方案） | Yes |

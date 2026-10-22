@@ -48,3 +48,12 @@ function uniqueObjects(arr, key) {
     return arr.filter(item => !map.has(item[key]) && map.set(item[key], 1));
 }
 // 示例：uniqueObjects([{id:1}, {id:1}, {id:2}], 'id')
+
+// 测试
+const testArr = [1, 2, 2, 3, 3, 3, 4];
+console.log('indexOf 去重:', unique1(testArr));   // [1, 2, 3, 4]
+console.log('Set 去重:', unique2(testArr));        // [1, 2, 3, 4]
+console.log('reduce 去重:', unique3(testArr));     // [1, 2, 3, 4]
+
+const objArr = [{ id: 1 }, { id: 1 }, { id: 2 }];
+console.log('对象数组去重:', uniqueObjects(objArr, 'id')); // [{ id: 1 }, { id: 2 }]

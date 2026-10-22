@@ -56,9 +56,13 @@ function ajax(method, url, callback) {
     };
 }
 
-// 测试
-ajax('GET', 'https://jsonplaceholder.typicode.com/todos/1', (err, data) => {
-    if (err) return console.error('请求失败', err);
-    console.log('请求成功', JSON.parse(data));
-});
+// 测试（需浏览器环境，Node 下仅验证函数定义）
+if (typeof window !== 'undefined') {
+    ajax('GET', 'https://jsonplaceholder.typicode.com/todos/1', (err, data) => {
+        if (err) return console.error('请求失败', err);
+        console.log('请求成功', JSON.parse(data));
+    });
+} else {
+    console.log('ajax 函数已定义（需在浏览器中运行测试）');
+}
 

@@ -31,8 +31,10 @@ function debounce(fn, wait = 300, immediate = false) {
 }
 
 // 测试
-const handleSearch = debounce((e) => {
-    console.log('搜索内容：', e.target.value);
+const handleSearch = debounce((msg) => {
+    console.log('触发搜索：', msg);
 }, 500);
-// 实际使用可绑定input事件
-// input.addEventListener('input', handleSearch);
+
+console.log('debounce 函数已定义');
+handleSearch('hello');   // 不会立即执行（非 immediate 模式）
+handleSearch('world');   // 重新计时，500ms 后输出 'world'
