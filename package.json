@@ -1,5 +1,13 @@
 {
-  "dependencies": {
-    "mammoth": "^1.13.0"
+  "name": "frontend-handwritten",
+  "version": "1.0.0",
+  "description": "前端手写代码高频题 — JS/Promise/设计模式/React Hooks/算法/TypeScript",
+  "type": "module",
+  "scripts": {
+    "run:js": "node",
+    "run:ts": "tsx"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0"
   }
 }
