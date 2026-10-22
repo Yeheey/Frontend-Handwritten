@@ -23,7 +23,15 @@ node 06-算法/02-排序算法.js
 npx tsx 07-TypeScript/01-工具类型.ts
 ```
 
-> **注意**：`04-React-Hooks/` 下的 01、02 两个文件 import 了 `react`，需在 React 项目中使用，无法在 Node.js 中直接运行。03 为概念演示，可直接运行。
+### 运行 React Hooks 测试
+
+```bash
+node 04-React-Hooks/demo.js
+```
+
+> `demo.js` 使用 `react-dom/server` 的 `renderToString` 在 Node.js 中渲染组件，验证所有自定义 Hooks 是否正常执行。
+
+> **注意**：`04-React-Hooks/` 下的 01、02 文件不能直接运行（它们是 Hook 定义，需要被组件调用），请通过 `demo.js` 统一验证。03 为概念演示，可直接运行。
 >
 > `05-前端工程/` 中涉及 DOM API（拖拽、懒加载、Hash 路由）的文件需在浏览器环境运行。
 
@@ -56,9 +64,10 @@ npx tsx 07-TypeScript/01-工具类型.ts
 ### 04-React Hooks
 | 文件 | 题目 | 可运行 |
 |------|------|--------|
-| `01-useDebounce-useThrottle.js` | useDebounce / useThrottle / useLocalStorage / usePrevious | 需 React 环境 |
-| `02-useRequest-memo.js` | useRequest / memo / useMemo / useCallback | 需 React 环境 |
+| `01-useDebounce-useThrottle.js` | useDebounce / useThrottle / useLocalStorage / usePrevious | 通过 demo.js |
+| `02-useRequest-memo.js` | useRequest / memo / useMemo / useCallback | 通过 demo.js |
 | `03-useState-useEffect.js` | 简易 useState / useEffect（概念演示） | Yes |
+| `demo.js` | 统一测试入口，验证所有 Hooks | Yes |
 
 ### 05-前端工程
 | 文件 | 题目 | 可运行 |

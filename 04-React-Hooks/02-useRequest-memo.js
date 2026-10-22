@@ -2,7 +2,18 @@
  * 手写 React 自定义 Hooks —— useRequest / memo / useMemo / useCallback
  *
  * 高频考点：请求管理 Hook 和 React 性能优化相关 Hook 的原理
+ *
+ * 说明：useMemo / useCallback 的手写实现与 React 内置同名，
+ * 这里将 React 原版以 reactXxx 别名引入，手写版保留原名用于导出学习。
  */
+
+import {
+  useState,
+  useEffect,
+  useRef,
+  useCallback as reactUseCallback,
+  useMemo as reactUseMemo,
+} from 'react';
 
 // ==================== useRequest ====================
 /**
@@ -29,8 +40,8 @@ function useRequest(service, options = {}) {
   const [error, setError] = useState(null);
   const timerRef = useRef(null);
 
-  // 核心请求执行函数
-  const run = useCallback((...args) => {
+  // 核心请求执行函数（使用 React 原版 useCallback）
+  const run = reactUseCallback((...args) => {
     const execute = async () => {
       setLoading(true);
       setError(null);
@@ -85,8 +96,8 @@ function memo(Component, propsAreEqual) {
   const compare = propsAreEqual || defaultCompare;
 
   function Memoized(props) {
-    // 使用 useMemo 缓存渲染结果，依赖为 props 的各个值
-    const rendered = useMemo(
+    // 使用 React 原版 useMemo 缓存渲染结果
+    const rendered = reactUseMemo(
       () => Component(props),
       Object.values(props)
     );
@@ -98,10 +109,11 @@ function memo(Component, propsAreEqual) {
   return Memoized;
 }
 
-// ==================== useMemo 简易版 ====================
+// ==================== useMemo 手写版 ====================
 /**
- * 简易 useMemo 实现
+ * 简易 useMemo 手写实现
  * 依赖不变时返回缓存值，变化时重新计算
+ * 原理：使用 useRef 保存上一次的依赖和计算结果，每次比较依赖是否变化
  * @param {Function} createFn - 创建缓存值的函数
  * @param {Array} deps - 依赖数组
  * @returns {any} 缓存的计算结果
@@ -122,10 +134,11 @@ function useMemo(createFn, deps) {
   return cacheRef.current.value;
 }
 
-// ==================== useCallback 简易版 ====================
+// ==================== useCallback 手写版 ====================
 /**
- * 简易 useCallback 实现
+ * 简易 useCallback 手写实现
  * 依赖不变时返回同一个函数引用
+ * 原理：与 useMemo 类似，只是缓存的是函数本身
  * @param {Function} callback - 回调函数
  * @param {Array} deps - 依赖数组
  * @returns {Function} 缓存的函数

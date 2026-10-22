@@ -2,8 +2,9 @@
  * 手写 React 自定义 Hooks —— useDebounce / useThrottle / useLocalStorage / usePrevious
  *
  * 高频考点：React Hooks 原理与实战应用
- * 注意：这些文件为 .js 格式，需在 React 项目环境中使用
  */
+
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 // ==================== useDebounce ====================
 /**
